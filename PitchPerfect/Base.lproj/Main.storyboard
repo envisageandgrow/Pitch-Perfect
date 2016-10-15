@@ -16,35 +16,39 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xd-zw-Dkw">
-                                <state key="normal" image="imgStop"/>
-                                <connections>
-                                    <action selector="stopBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b0j-4b-UjG"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-Ul-Hgl">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYI-aw-MQY">
-                                <state key="normal" image="imgRecord"/>
-                                <connections>
-                                    <action selector="recBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MgF-XR-TaI"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KbQ-mM-Jnb">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYI-aw-MQY">
+                                        <state key="normal" image="imgRecord"/>
+                                        <connections>
+                                            <action selector="recBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MgF-XR-TaI"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-Ul-Hgl">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xd-zw-Dkw">
+                                        <state key="normal" image="imgStop"/>
+                                        <connections>
+                                            <action selector="stopBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b0j-4b-UjG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="N9L-Ul-Hgl" firstAttribute="leading" secondItem="KbQ-mM-Jnb" secondAttribute="leading" id="9Wd-FV-uGy"/>
+                                    <constraint firstItem="EYI-aw-MQY" firstAttribute="leading" secondItem="KbQ-mM-Jnb" secondAttribute="leading" constant="4" id="rQS-FV-abG"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3xd-zw-Dkw" firstAttribute="top" secondItem="N9L-Ul-Hgl" secondAttribute="bottom" constant="36" id="CYf-9i-LLO"/>
-                            <constraint firstItem="EYI-aw-MQY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gb7-dS-Hn2"/>
-                            <constraint firstItem="EYI-aw-MQY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="268" id="T75-QB-Rug"/>
-                            <constraint firstItem="N9L-Ul-Hgl" firstAttribute="top" secondItem="EYI-aw-MQY" secondAttribute="bottom" constant="35" id="ceR-M7-6CQ"/>
-                            <constraint firstItem="3xd-zw-Dkw" firstAttribute="centerX" secondItem="N9L-Ul-Hgl" secondAttribute="centerX" id="kGO-Yn-KFb"/>
-                            <constraint firstItem="N9L-Ul-Hgl" firstAttribute="centerX" secondItem="EYI-aw-MQY" secondAttribute="centerX" id="t3U-1A-cpu"/>
+                            <constraint firstItem="KbQ-mM-Jnb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9WC-2e-q08"/>
+                            <constraint firstItem="KbQ-mM-Jnb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vXr-kX-oJN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YF2-XY-gsG"/>
@@ -86,7 +90,7 @@
                         <viewControllerLayoutGuide type="bottom" id="f1o-VP-Hfu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8JG-Hj-cjU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="POH-RF-zJn">
@@ -142,7 +146,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gC4-0v-k99">
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rh-sC-0V4" userLabel="StopButton">
-                                                <state key="normal" title="Button" image="imgStop"/>
+                                                <state key="normal" image="imgStop"/>
                                                 <connections>
                                                     <action selector="stopButtonPressed:" destination="qVZ-Pa-DPD" eventType="touchUpInside" id="2RL-PO-ecg"/>
                                                 </connections>
