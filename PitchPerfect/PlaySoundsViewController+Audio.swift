@@ -23,13 +23,12 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
     
     // raw values correspond to sender tags
     enum PlayingState { case Playing, NotPlaying }
-
+    
     
     // MARK: Audio Functions
     
     func setupAudio() {
         // initialize (recording) audio file
-        print("Probando a crear archivo de audio")
         do {
             audioFile = try AVAudioFile(forReading: recordedAudioURL as URL)
         } catch {
@@ -95,14 +94,14 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
             }
             
             // schedule a stop timer for when audio finishes playing
-            /*self.stopTimer = Timer(timeInterval: delayInSeconds, target: self, selector: "stopAudio", userInfo: nil, repeats: false)
-            RunLoop.main.addTimer(self.stopTimer!, forMode: RunLoopMode.defaultRunLoopMode)*/
+            self.stopTimer = Timer(timeInterval: delayInSeconds, target: self, selector: #selector(PlaySoundsViewController.stopAudio), userInfo: nil, repeats: false)
+            RunLoop.main.add(self.stopTimer!, forMode: RunLoopMode.defaultRunLoopMode)
         }
         
         do {
             try audioEngine.start()
         } catch {
-            showAlert(title:Alerts.AudioEngineError, message: String(describing: error))
+            showAlert(title: Alerts.AudioEngineError, message: String(describing: error))
             return
         }
         
@@ -125,7 +124,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
             stopTimer.invalidate()
         }
         
-        configureUI(playState:.NotPlaying)
+        configureUI(playState: .NotPlaying)
         
         if let audioPlayerNode = audioPlayerNode {
             audioPlayerNode.stop()
@@ -139,7 +138,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
     
     
     // MARK: UI Functions
-
+    
     func configureUI(playState: PlayingState) {
         switch(playState) {
         case .Playing:
@@ -152,24 +151,23 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
     }
     
     func setPlayButtonsEnabled(enabled: Bool) {
-        snailButton.isEnabled = true
-        chipmunkButton.isEnabled = true
-        rabbitButton.isEnabled = true
-        vaderButton.isEnabled = true
-        echoButton.isEnabled = true
-        reverbButton.isEnabled = true
+        snailButton.isEnabled = enabled
+        chipmunkButton.isEnabled = enabled
+        rabbitButton.isEnabled = enabled
+        vaderButton.isEnabled = enabled
+        echoButton.isEnabled = enabled
+        reverbButton.isEnabled = enabled
     }
-
+    
     
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Alerts.DismissAlert, style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-
+    
     
 }
-
 
 
 
