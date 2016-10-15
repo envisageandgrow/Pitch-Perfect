@@ -157,6 +157,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         vaderButton.isEnabled = enabled
         echoButton.isEnabled = enabled
         reverbButton.isEnabled = enabled
+        playButton.isEnabled = enabled
     }
     
     
